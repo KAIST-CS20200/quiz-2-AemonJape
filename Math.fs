@@ -6,4 +6,13 @@ open System
 /// 32-bit integer, and returns the number of steps it takes to reach 1 in the
 /// Collatz sequence.
 let collatz n =
-  0
+  let mutable c = int64 n
+  let mutable m = 0
+  while c <> 1L do
+    if c % 2L = 0L then 
+      c <- c / 2L
+      m <- m + 1
+    else 
+      c <- (3L * c + 1L) / 2L
+      m <- m + 2 
+  m
